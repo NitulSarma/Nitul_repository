@@ -250,7 +250,18 @@ In the code editor Git uses markings to indicate the HEAD (master) version of th
 From the code editor delete/update to resolve conflict and remove the special markings 
 including the HEAD and OTHER file names, reload your file, then re add and recommit your changes.
 ---------------------------------------------------------------------------------------------------------
+What is the origin in Git?
+-----------------------------
+In Git, "origin" is a shorthand name for the remote repository that a project was originally cloned from. 
+More precisely, it is used instead of that original repository's URL - and thereby makes referencing much easier.
 
+Note that origin is by no means a "magical" name, but just a standard convention. 
+Although it makes sense to leave this convention untouched, you could perfectly rename it without losing any functionality.
+
+In the following example, the URL parameter to the "clone" command becomes the "origin" for the cloned local repository:
+
+git clone https://github.com/gittower/git-crash-course.git
+------------------------------------------------------------------------------------------------------------
 
 
 
