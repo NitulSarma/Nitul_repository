@@ -233,8 +233,11 @@ git stash pop           # get the changes back into your working tree
 Abandon it all
 
 3)git reset --hard        # removes all pending changes
-
+-------------------------------------------------------------------------------------------------
+UPDATING A DIFFERENT BRANCH
+-----------------------------
 PROCESS:
+
 git checkout branch_name ## branch_name to be updated
 git pull origin branch_name
 git merge branch_name_with_updated_data
