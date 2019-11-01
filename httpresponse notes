@@ -1,0 +1,121 @@
+HTTP Status Codes:
+
+HTTP defines forty standard status codes that can be used to convey the results of a client’s request.
+
+Few status codes are:
+
+200 (OK)
+----------
+It indicates that the REST API successfully carried out whatever action the client requested.
+A 200 response should include a response body.
+
+201 (Created)
+----------------
+A REST API responds with the 201 status code whenever a resource is created inside a collection. 
+There may also be times when a new resource is created as a result of some controller action, 
+in which case 201 would also be an appropriate response.
+
+202 (Accepted)
+-----------------
+A 202 response is typically used for actions that take a long while to process. 
+It indicates that the request has been accepted for processing, but the processing has not been completed. 
+The request might or might not be eventually acted upon, or even maybe disallowed when processing occurs.
+
+204 (No Content)
+------------------
+The 204 status code is usually sent out in response to a PUT, POST, or DELETE request
+when the REST API declines to send back any status message or representation in the response message’s body.
+An API may also send 204 in conjunction with a GET request to indicate that the requested resource exists, 
+but has no state representation to include in the body.
+
+301 (Moved Permanently)
+------------------------
+The 301 status code indicates that the REST API’s resource model has been significantly redesigned
+and a new permanent URI has been assigned to the client’s requested resource. 
+The REST API should specify the new URI in the response’s Location header and all future requests should be directed to the given URI.
+
+302 (Found)
+------------
+The HTTP response status code 302 Found is a common way of performing URL redirection. 
+An HTTP response with this status code will additionally provide a URL in the location header field. 
+The user agent (e.g. a web browser) is invited by a response with this code to make a second, 
+otherwise identical, request to the new URL specified in the location field.
+
+303 (See Other)
+------------------
+A 303 response indicates that a controller resource has finished its work, 
+but instead of sending a potentially unwanted response body, it sends the client the URI of a response resource. 
+This can be the URI of a temporary status message, or the URI to some already existing, more permanent, resource.
+
+304 (Not Modified)
+-------------------
+This status code is similar to 204 (“No Content”) in that the response body must be empty. 
+The key distinction is that 204 is used when there is nothing to send in the body, 
+whereas 304 is used when the resource has not been modified since the version specified by the request headers 
+In such case, there is no need to retransmit the resource since the client still has a previously-downloaded copy.
+
+307 (Temporary Redirect)
+--------------------------
+A 307 response indicates that the REST API is not going to process the client’s request. 
+Instead, the client should resubmit the request to the URI specified by the response message’s Location header. 
+However, future requests should still use the original URI.
+
+400 (Bad Request)
+--------------------
+400 is the generic client-side error status, used when no other 4xx error code is appropriate. 
+Errors can be like malformed request syntax, invalid request message parameters, or deceptive request routing etc.
+The client SHOULD NOT repeat the request without modifications.
+
+401 (Unauthorized)
+---------------------
+A 401 error response indicates that the client tried to operate on a protected resource without providing the 
+proper authorization. It may have provided the wrong credentials or none at all. 
+The response must include a WWW-Authenticate header field containing a challenge applicable to the requested resource.
+
+403 (Forbidden)
+--------------------
+A 403 error response indicates that the client’s request is formed correctly, but the REST API refuses to honor it i.e.
+the user does not have the necessary permissions for the resource. A 403 response is not a case of insufficient client credentials; 
+that would be 401 (“Unauthorized”).
+Authentication will not help and the request SHOULD NOT be repeated. Unlike a 401 Unauthorized response, authenticating will make no difference.
+
+404 (Not Found)
+-------------------
+The 404 error status code indicates that the REST API can’t map the client’s URI to a resource 
+but may be available in the future. Subsequent requests by the client are permissible.
+
+405 (Method Not Allowed)
+--------------------------
+The API responds with a 405 error to indicate that the client tried to use an HTTP method that the resource does not allow. 
+For instance, a read-only resource could support only GET and HEAD, while a controller resource might allow GET and POST, 
+but not PUT or DELETE.
+
+406 (Not Acceptable)
+----------------------
+The 406 error response indicates that the API is not able to generate any of the client’s preferred media types, 
+as indicated by the Accept request header. For example, a client request for data formatted as application/xml will receive a 406 response 
+if the API is only willing to format data as application/json.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

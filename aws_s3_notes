@@ -1,0 +1,31 @@
+Getting Response:
+
+Create a response variable and print it.
+
+response = s3.list_buckets()
+print(response)
+
+response = s3.list_buckets()
+print(response)
+-----------------------------------------
+You get a JSON response
+
+Python
+{'Buckets': [{'CreationDate': datetime.datetime(2019, 3, 6, 16, 35, 37, tzinfo=tzutc()),
+   'Name': 'testbuckethp'},
+  {'CreationDate': datetime.datetime(2019, 3, 6, 16, 35, 46, tzinfo=tzutc()),
+   'Name': 'testbuckethp2'}],
+ 'Owner': {'DisplayName': 'harshvypandya',
+  'ID': '16150aa9e7d75fa3c4086a6c5bec7c36aaf1fcac0251a9557cc914148c8205e7'},
+ 'ResponseMetadata': {'HTTPHeaders': {'content-type': 'application/xml',
+   'date': 'Wed, 06 Mar 2019 16:36:10 GMT',
+   'server': 'AmazonS3',
+   'transfer-encoding': 'chunked',
+   'x-amz-id-2': 'ms7TdSsaLB94+Ro8ugEhRx2IbmwJocNLfqf0DhndH5nRquwRg5rwRuIbRY+Rlun2qBl12byu9rw=',
+   'x-amz-request-id': '41AF05A6535EBB7D'},
+  'HTTPStatusCode': 200,
+  'HostId': 'ms7TdSsaLB94+Ro8ugEhRx2IbmwJocNLfqf0DhndH5nRquwRg5rwRuIbRY+Rlun2qBl12byu9rw=',
+  'RequestId': '41AF05A6535EBB7D',
+  'RetryAttempts': 0}}
+-------------------------------------------
+

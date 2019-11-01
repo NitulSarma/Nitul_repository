@@ -1,0 +1,337 @@
+The Git command line tools
+============================
+
+You can get help for a certain Git command via the help command online option followed by the command.
+
+>>git help 
+
+See all possible commands, use the git help --all command.
+
+>>git help --all
+
+----------------------------------------------------------------
+Git supports for several commands a short and a long version, similar to other Unix commands. 
+The short version uses a single hyphen and the long version uses two hyphen. The following two commands are equivalent.
+
+>>git commit -m "This is a message"
+
+>>git commit --message "This is a message"
+
+----------------------------------------------------------------
+Create a directory
+---------------------
+The following commands create an empty directory
+
+# switch to the home directory
+>>cd
+
+# create a directory and switch into it
+>>mkdir repo01
+>>cd repo01
+
+# create a new directory
+>>mkdir datafiles
+-------------------------------------------------------------------
+Create a new Git repository
+-------------------------------
+You now create a new Git repository with a working tree.
+
+# you should still be in the repo01 directory
+cd ~/repo01
+
+# initialize the Git repository
+# for the current directory
+>>git init
+------------------------------------------------------------------------
+Create new content
+------------------------
+Use the following commands to create several new files.
+
+# switch to your Git repository
+cd ~/repo01
+
+# create an empty file in a new directory
+>>touch datafiles/data.txt
+
+# create a few files with content
+>>ls > test01
+>>echo "bar" > test02
+>>echo "foo" > test03
+----------------------------------------------------------------------------------
+See the current status of your repository
+-------------------------------------------
+The git status command shows the status of the working tree, i.e. which files have changed, 
+which are staged and which are not part of the staging area. It also shows which files have conflicts 
+and gives an indication what the user can do with these changes, e.g., add them to the staging area or remove them, etc.
+
+Run it via the following command.
+
+>>git status
+-------------------------------------------------------------------------------------
+Add changes to the staging area
+----------------------------------
+Before committing changes to a Git repository, you need to mark the changes that should be committed with the git add command. 
+This command allows adding changes in the file system to the staging area. It creates a snapshot of the affected files. 
+You can add all changes to the staging area with the . option or changes in individual files but specifying a file pattern as option.
+
+# add all files to the index of the Git repository
+>>git add .
+--------------------------------------------------------------------------------------
+Git Branch
+============
+Create a New Branch
+-------------------------
+# Two-step method
+
+git branch NEW-BRANCH-NAME
+git checkout NEW-BRANCH-NAME
+
+# Shortcut
+
+git checkout -b NEW-BRANCH-NAME
+
+** When you create a new branch, it will include all commits from the parent branch. 
+The parent branch is the branch you’re on when you create the new branch.**
+----------------------------------------------------------------------------------------
+View Branches
+-----------------
+To view the branches in a Git repository, run the command:
+
+git branch
+
+To view both remote-tracking branches and local branches, run the command:
+
+git branch -a
+
+If you only want to see the remote branches, use the -r (or --remotes) option.
+There will be an asterisk (*) next to the branch that you’re currently on.
+------------------------------------------------------------------------------------------
+Checkout a Branch
+---------------------
+To checkout an existing branch, run the command:
+
+git checkout BRANCH-NAME
+
+Generally, Git won’t let you checkout another branch unless your working directory is clean, 
+because you would lose any working directory changes that aren’t committed. 
+-------------------------------------------------------------------------------------------
+Rename a Branch
+----------------------
+To rename a branch, run the command:
+
+git branch -m OLD-BRANCH-NAME NEW-BRANCH-NAME
+
+# Alternative
+
+git branch --move OLD-BRANCH-NAME NEW-BRANCH-NAME
+------------------------------------------------------------------------------------------
+Delete a Branch
+-----------------
+Git won’t let you delete a branch that you’re currently on. You first need to checkout a different branch, then run the command:
+
+git branch -d BRANCH-TO-DELETE
+
+# Alternative:
+git branch --delete BRANCH-TO-DELETE
+
+The branch that you switch to makes a difference. Git will throw an error if the changes in the branch you’re 
+trying to delete are not fully merged into the current branch. You can override this and force Git to delete the 
+branch with the -D option (note the capital letter) or using the --force option with -d or --delete:
+
+git branch -D BRANCH-TO-DELETE
+
+# Alternatives
+git branch -d --force BRANCH-TO-DELETE
+git branch --delete --force BRANCH-TO-DELETE
+-------------------------------------------------------------------------------------------
+Compare Branches
+-----------------
+You can compare branches with the git diff command:
+
+git diff FIRST-BRANCH..SECOND-BRANCH
+
+You’ll see colored output for the changes between branches. For all lines that have changed, 
+the SECOND-BRANCH version will be a green line starting with a ”+”, and the FIRST-BRANCH version 
+will be a red line starting with a ”-“.
+---------------------------------------------------------------------------------------------
+Help with Git Branch
+------------------------
+If you forget how to use an option, or want to explore other functionality around the git branch command, 
+you can run any of these commands:
+
+git help branch
+git branch --help
+man git-branch
+-----------------------------------------------------------------------------------------------
+Git Pull
+----------
+git pull is a Git command used to update the local version of a repository from a remote.
+
+It is one of the four commands that prompts network interaction by Git. By default, git pull does two things.
+
+1)Updates the current local working branch (currently checked out branch)
+2)Updates the remote tracking branches for all other branches.
+
+git pull fetches (git fetch) the new commits and merges (git merge) these into your local branch.
+
+This command’s syntax is as follows:
+
+# General format
+git pull OPTIONS REPOSITORY REFSPEC
+
+# Pull from specific branch
+git pull REMOTE-NAME BRANCH-NAME
+
+in which:
+
+OPTIONS are the command options, such as --quiet or --verbose. You can read more about the different options in the Git documentation
+REPOSITORY is the URL to your repo. Example: https://github.com/freeCodeCamp/freeCodeCamp.git
+REFSPEC specifies which refs to fetch and which local refs to update
+REMOTE-NAME is the name of your remote repository. For example: origin.
+BRANCH-NAME is the name of your branch. For example: develop.
+
+**Note**
+
+If you have uncommitted changes, the merge part of the git pull command will fail and your local branch will be untouched.
+Thus, you should always commit your changes in a branch before pulling new commits from a remote repository.
+-----------------------------------------------------------------------------------------------------
+Network interactions in Git
+----------------------------
+There are only four commands that prompt network interactions in Git. A local repository has no awareness of changes made on the remote repository until there is a request for information. And, a remote repository has no awareness of local changes until commits are pushed.
+
+The four network commands are:
+
+git clone
+git fetch
+git pull
+git push
+-----------------------------------------------------------------------------------------------------
+Git Merge
+-----------
+The git merge command will merge any changes that were made to the code base on a seperate branch to your current branch.
+
+The command syntax is as follows:
+
+git merge BRANCH-NAME
+
+For example, if you are currently working in a branch named dev and would like to merge any new changes that were made in a branch named new-features, you would issue the following command:
+
+git merge new-features
+
+**Please Note**: If there are any uncommitted changes on your current branch, Git will not allow you to merge until all changes in your current branch have been committed. To handle those changes, you can either:
+
+1)Create a new branch and commit the changes
+
+git checkout -b new-branch-name
+git add .
+git commit -m "<your commit message>"
+Stash them
+
+2)git stash               # add them to the stash
+git merge new-features  # do your merge
+git stash pop           # get the changes back into your working tree
+Abandon it all
+
+3)git reset --hard        # removes all pending changes
+--------------------------------------------------------------------------------------------------------
+Merge Conflict
+---------------
+A merge conflict is when you make commits on separate branches that alter the same line in conflicting ways. 
+Therefore Git will not know which version of the file to keep resulting in the error message:
+
+CONFLICT (content): Merge conflict in resumé.txt Automatic merge failed; fix conflicts and then commit the result.
+
+In the code editor Git uses markings to indicate the HEAD (master) version of the file and the other version of the file.
+
+<<<<<<< HEAD
+
+>>>>>>> OTHER
+
+From the code editor delete/update to resolve conflict and remove the special markings 
+including the HEAD and OTHER file names, reload your file, then re add and recommit your changes.
+---------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

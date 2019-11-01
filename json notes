@@ -1,0 +1,34 @@
+Python JSON: Encode(dump), Decode(load)
+------------------------------------------
+What is JSON?
+---------------
+JSON is a standard format for data exchange, which is inspired by JavaScript. Generally, JSON is in string or text format. JSON stands for JavaScript Object Notation.
+
+The syntax of JSON: JSON is written as key and value pair.
+
+{
+        "Key":  "Value",
+        "Key":  "Value",
+} 
+
+JSON is very similar to Python dictionary. Python supports JSON, and it has an inbuilt library as a JSON.
+
+To perform JSON related operations like encoding and decoding in Python you need first to import JSON library and for that in your .py file,
+
+>>> import json
+
+Following methods are available in the JSON module
+
+Method          Description
+------          -----------	
+dumps()  	encoding to JSON objects
+dump()	        encoded string writing on file
+loads()	        Decode the JSON string
+load()	        Decode while JSON file read
+-----------------------------------------------
+Python to JSON (Encoding)
+-------------------------
+Converting Python data to JSON is called an Encoding operation. Encoding is done with the help of JSON library method – dumps()
+
+dumps() method converts dictionary object of python into JSON string data format.
+

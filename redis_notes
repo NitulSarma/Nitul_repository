@@ -1,0 +1,42 @@
+SET
+-----
+
+set key_name value  # type of value is changed to string
+
+get key_name # string type of value is returned
+--------------------------------------------------------------------
+
+LPUSH  # values added from the left of a list
+------
+
+lpush key_name value1
+lpush key_name value2 # values are added in a list in the form of list elements
+---------------------------------------------------------------------
+
+RPUSH  # values added from the right of a list
+------
+
+lpush key_name value1
+lpush key_name value2 # values are added in a list in the form of list elements
+----------------------------------------------------------------------
+
+LPOP  # works only on those keys which were lpushed or rpushed
+------
+
+lpop key_name  # pops from the left of a list
+----------------------------------------------------------------------
+
+RPOP  # works only on those keys which were lpushed or rpushed
+------
+
+rpop key_name  # pops from the right of a list
+----------------------------------------------------------------------
+TO DELETE A KEY 
+-------------------
+1) DEL key_name
+ 
+2) SET key_name value EX 1  ## immediately deleted
+
+3) EXPIRE key_name 1  ## 1 denotes expire at 1 second
+
+

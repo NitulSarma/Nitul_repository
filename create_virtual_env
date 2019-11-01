@@ -1,0 +1,35 @@
+FOR PYTHON 2 ENVIRONMENT
+
+#COMMANDS
+
+>>> pip2 install virtualenv
+
+>>> virtualenv my_env1 
+
+source my_env1/bin/activate
+--------------------------
+INSTALL DJANGO
+
+#COMMANDS
+
+>>> pip2 install django
+
+# From the command line, cd into a directory where you’d like to store your code, then run the following command:
+
+>>> django-admin startproject mysite
+
+This will create a mysite directory in your current directory.
+
+Change into the outer mysite directory
+
+>>> python manage.py runserver
+
+You’ve started the Django development server, a lightweight Web server written purely in Python.
+
+To create your app, make sure you’re in the same directory as manage.py and type this command:
+
+>>> python manage.py startapp app_name
+------------------------------------------
+if (Error: That port is already in use.)
+
+>>> sudo fuser -k 8000/tcp
