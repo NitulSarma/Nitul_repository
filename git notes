@@ -272,7 +272,6 @@ Although it makes sense to leave this convention untouched, you could perfectly 
 In the following example, the URL parameter to the "clone" command becomes the "origin" for the cloned local repository:
 
 git clone https://github.com/gittower/git-crash-course.git
-# to create conflict
 ------------------------------------------------------------------------------------------------------------
 
 
